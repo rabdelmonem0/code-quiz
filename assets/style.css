@@ -1,4 +1,18 @@
+* {
+    box-sizing: border-box;
+}
 
+header {
+    flex-direction: row;
+}
+
+body {
+    font-family: ;
+}
+
+.main-title .instructions {
+    text-align: center;
+}
 
 hr {
     width: 75%;
