@@ -9,7 +9,7 @@
   <body>
     <header>
         <a href="">View Highscores</a>
-        <p class="time">Time: <span class="timer">95</span></p>
+        <p class="time">Time: <span class="timer">75</span></p>
     </header>
     <main>
       <div class="first-page">
@@ -19,16 +19,25 @@
         </section>
         <hr>
         <section>
-          <button class="start-quiz" >Start Quiz</button> 
+          <button class="start-quiz">Start Quiz</button> 
         </section>        
       </div> 
       <div class="question-block"  style="display: none">
         <section class="questions">
           <h2 class="question-text"></h2>
-          <ul class="answer-choices">
-            <!-- this is where your answer choice buttons will populate -->
-            <!-- dynamiclly create the li items with buttons, then appendChild to the ul-->
-          </ul>
+          <ul class="answer-choices"></ul>
+        </section>
+      </div>
+      <div class="all-done" style="display: none">
+        <section class="initials">
+          <h2>All Done!</h2>
+          <form id="initials-form" method="POST">
+            <label for="initials-text">Enter Initials: </label>
+            <input type="text" placeholder="Enter your initials here" name="initals-text" id="initials-text" />
+          </form>
+          <ul id="initials-list"></ul>
+      
+    
         </section>
       </div>
     </main>

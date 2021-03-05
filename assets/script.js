@@ -11,19 +11,19 @@ var questions = [
         answer: "console.log"
     },
     {
-        question: 'Commonly used data types DO NOT include:',
-        choices: ["strings","booloeans","alers","numbers"],
-        answer: "alerts"
+        question: 'The condition in an if / else statement is enclosed withih _____:',
+        choices: ["Quotes","Curly Brackets","Parentheses","Square Brackets"],
+        answer: "Parentheses"
     },
     {
-        question: 'Commonly used data types DO NOT include:',
-        choices: ["strings","booloeans","alers","numbers"],
-        answer: "alerts"
+        question: 'Arrays in JavaScript can be used to store:',
+        choices: ["strings and numbers","booloeans","alerts","All of the above"],
+        answer: "All of the above"
     },
     {
-        question: 'Commonly used data types DO NOT include:',
-        choices: ["strings","booloeans","alers","numbers"],
-        answer: "alerts"
+        question: 'String values must be enclosed within _____ when being assigned to variables:',
+        choices: ["Quotes","Curly Brackets","Parentheses","Commas"],
+        answer: "Quotes"
     },
 ];
 
@@ -34,7 +34,10 @@ var firstPage = document.querySelector(".first-page");
 var timerElement = document.getElementsByClassName("timer")[0]
 var timerCount;
 var completed;
-var timerCounter = 95;
+var timerCounter = 75;
+
+
+
 
 function startQuiz() { //hide "first-page"
     document.querySelector(".first-page").setAttribute("style", "display: none");
@@ -85,10 +88,10 @@ function generateQuestion(){
     questionEl.textContent = currentQuestion.question;
 
     for (var i = 0; i < currentQuestion.choices.length; i++){
-        var listItem = document.createElement("li");
+        var listItem = document.createElement("ul");
         var choiceBtn = document.createElement('button');
         
-        choiceBtn.textContent = i + 1 + " "  +  currentQuestion.choices[i]
+        choiceBtn.textContent = i + 1 + ". "  +  currentQuestion.choices[i]
         listItem.append(choiceBtn);
         document.getElementsByClassName("answer-choices")[0].appendChild(listItem);
         
@@ -99,19 +102,13 @@ function generateQuestion(){
                 document.getElementsByClassName("answer-choices")[0].innerHTML = "Correct!"
                 questionIndex++ 
                 generateQuestion()
-                // yo that was right 
             } else {
-                  document.getElementsByClassName("answer-choices")[0].innerHTML = "Wrong"
+                document.getElementsByClassName("answer-choices")[0].innerHTML = "Wrong"
                 questionIndex++
                 generateQuestion()
-                // yo that was wrong do better 
             }
         })
 
-
-        // choiceBtn needs a value attribute
-        // appendChild method
-        //event listeners added to buttons
     }
 }
 
@@ -124,4 +121,40 @@ function checkAnswer(event){
     generateQuestion()
 }
 
+var initialsInput = document.querySelector("#initials-text");
+
+var initialsList = document.querySelector("#initials-list");
+var initialsCountSpan = document.querySelector("#initials-count");
+
+
+var initialsForm = document.getElementById("#initials-form");
+var initials = document.getElementsByClassName("initials");
+var allDone = document.querySelector(".all-done");
+
+function enterInitials() { //displays "all-done"
+    document.querySelector(".all-done").setAttribute("style", "display: none");
+    document.querySelector(".initials").removeAttribute("style");
+    endQuiz()
+}
+
+var initials2 = [];
+
+// The following function renders items in a list as <li> elements
+function renderInitials() {
+  initialsList.innerHTML = "";
+  initialsCountSpan.textContent = initials2.length;
+ // Render a new li for each initial
+ for (var i = 0; i < initials2.length; i++) {
+    var initial = initials2[i];
+
+    var li = document.createElement("li");
+    li.textContent = initials2;
+    li.setAttribute("data-index", i);
+
+    li.appendChild(button);
+    todoList.appendChild(li);
+  }
+}
+
 document.querySelector(".start-quiz").addEventListener("click", startQuiz);
+document.querySelector(".answer-choices").addEventListener("click", endQuiz);
