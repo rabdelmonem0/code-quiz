@@ -1,16 +1,29 @@
 * {
     box-sizing: border-box;
+    font-family: 'Istok Web', sans-serif;
 }
 
 header {
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
 }
 
-body {
-    font-family: ;
+.first-page {
+    padding: 200px;
+    margin-top: 50px;
+    background-color: rgb(75, 74, 74);
+    color: ivory;
 }
 
-.main-title .instructions {
+.main-title {
+    text-align: center;
+}
+
+.instructions {
+    text-align: center;
+}
+
+.start-quiz {
     text-align: center;
 }
 
